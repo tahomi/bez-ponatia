@@ -10,4 +10,7 @@ public class TestController {
     public String test() {
         return "Test Dima";
     }
+
+    @GetMapping("/hi")
+    public String hi(){ return "<h1>Dima pidor</h1>"; }
 }
