@@ -12,5 +12,7 @@ public class TestController {
     }
 
     @GetMapping("/hi")
-    public String hi(){ return "<h1>Dima pidor</h1>"; }
+    public String hi(){ return "<h1 style='color: red'>Dima pidor</h1>"; }
+
+
 }
