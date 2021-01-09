@@ -9,5 +9,4 @@ public class BezPonatiaApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(BezPonatiaApplication.class, args);
 	}
-
 }
