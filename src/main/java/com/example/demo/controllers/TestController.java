@@ -1,7 +1,13 @@
 package com.example.demo.controllers;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
+
+
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
 
 @RestController
 public class TestController {
@@ -13,6 +19,22 @@ public class TestController {
 
     @GetMapping("/hi")
     public String hi(){ return "<h1 style='color: red'>Dima pidor</h1>"; }
+
+    @PutMapping("/file")
+    @ResponseStatus(HttpStatus.CREATED)
+    public void saveFile(@RequestBody byte[] fileContent){
+        try {
+
+            Path filePath = Files.createTempFile("putted-file", null);
+            Files.write(filePath, fileContent);
+
+            System.out.println(new String(Files.readAllBytes(filePath)));
+        }  catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
+    }
 
 
 }
